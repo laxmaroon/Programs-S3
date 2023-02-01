@@ -13,23 +13,22 @@ public:
         rear = -1;
     }
 
-    void enqueue() {
+    void enqueue(int x) {
         if ((front == 0 && rear == MAXSIZE - 1) || (front == rear + 1)) {
             cout << "Queue is full!" << endl;
-        } else {
-            int data;
-            cout<<"Enter data:";
-              cin >>data;
-            if (front == -1) {
-                front = rear = 0;
-            } else {
-                if (rear == MAXSIZE - 1) {
-                    rear = 0;
-                } else {
-                    rear++;
-                }
-            }
-            queue[rear] = data;
+            return;
+        } 
+       if (front == -1) {
+            front = rear = 0;
+         } else 
+         {
+            if (rear == MAXSIZE - 1) {
+               rear = 0;
+               } else {
+                rear++;
+              }
+            
+            queue[rear] = x;
         }
     }
 
@@ -74,6 +73,7 @@ public:
 
 int main() {
     CircularQueue cq;
+    int data;
     int choice;
     while (true) {
         cout << "1. Enqueue" << endl;
@@ -84,7 +84,9 @@ int main() {
           cin >>choice;
         switch (choice) {
             case 1:
-                cq.enqueue();
+              cout<<"Enter data:";
+              cin>>data;
+                cq.enqueue(data);
                 break;
             case 2:
                 cq.dequeue();

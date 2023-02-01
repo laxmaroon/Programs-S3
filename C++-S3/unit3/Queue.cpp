@@ -1,94 +1,102 @@
-#include<iostream>
+#include <iostream>
+#include <cstdlib>
+
 using namespace std;
-class queue
-{
-    public:
-    int f,r,n;
-    int *a;
-    queue()
-    {
-        
+
+const int MAX_SIZE = 10;
+
+class Queue {
+  private:
+    int front;
+    int rear;
+    int arr[MAX_SIZE];
+
+  public:
+    Queue() {
+      front = -1;
+      rear = -1;
     }
-    queue(int s)
-    {
-        f=-1;
-        r=-1;
-        n=s;
-        a=new int[n];
+
+    void enqueue(int x) {
+      if (rear == MAX_SIZE - 1) {
+        cout << "Queue is full. Cannot enqueue." << endl;
+        return;
+      }
+
+      if (front == -1 && rear == -1) {
+        front = rear = 0;
+      } else {
+        rear++;
+      }
+
+      arr[rear] = x;
+      cout << x << " enqueued." << endl;
     }
-    void enqueue(int item)
-    {
-        if((r+1)%n==f)
-        {
-        cout<<"queue is full";
-        }
-        else if(f==-1 && r==-1)
-        {
-            f=r=0;
-            a[r]=item;
-        }
-        else
-        r=(r+1)%n;
-        a[r]=item;
+
+    void dequeue() {
+      if (front == -1) {
+        cout << "Queue is empty. Cannot dequeue." << endl;
+        return;
+      }
+
+      cout << arr[front] << " dequeued." << endl;
+
+      if (front == rear) {
+        front = rear = -1;
+      } else {
+        front++;
+      }
     }
-    int dequeue()
-    {
-        if(f==r==-1){
-        cout<<"queue is empty";
-        }
-        int res=a[f];
-        if(r==f)//only when 1 element is there
-        {
-            r=f=-1;
-        }
-        else
-        {
-        f=(f+1)%n;
-        }
-        return res;
-    }
-    void display()
-    {
-        int i=f;
-        if(f==-1 || r==-1)
-        {
-        cout<<"no elements to display";
-        }
-        else
-        {
-        cout<<"queue is";
-        while(i!=r)
-        {
-        cout<<a[i];
-        i=(i+1)%n;
-        }
-        cout<<a[r];
-    }
+
+    void display() {
+      if (front == -1) {
+        cout << "Queue is empty." << endl;
+        return;
+      }
+
+      for (int i = front; i <= rear; i++) {
+        cout << arr[i] << " ";
+      }
+      cout << endl;
     }
 };
-int main()
-{
-    int n;
-    cout<<"enter array size:";
-    cin>>n;
-    queue q(n);
-    int ch,e=1;
-    int x;
-    do
-    {
-        cout<<"\n1.enqueue\n2.dequeue\n3.display\n";
-        cout<<"enter choice:";
-        cin>>ch;
-        switch(ch)
-        {
-            case 1:
-            cout<<"enter element to add:";
-            cin>>x;
-            q.enqueue(x);break;
-            case 2:q.dequeue();break;
-            case 3:q.display();break;
-            default:e=0;break;
-        }
+
+int main() {
+  Queue q;
+
+  int choice;
+  int x;
+  while (true) {
+    cout << "1. Enqueue" << endl;
+    cout << "2. Dequeue" << endl;
+    cout << "3. Display" << endl;
+    cout << "4. Exit" << endl;
+
+    cout << "Enter your choice: ";
+    cin >> choice;
+
+    switch (choice) {
+      case 1:
+        cout << "Enter the number to enqueue: ";
+        cin >> x;
+        q.enqueue(x);
+        break;
+
+      case 2:
+        q.dequeue();
+        break;
+
+      case 3:
+        q.display();
+        break;
+
+      case 4:
+        exit(0);
+
+      default:
+        cout << "Invalid choice. Please try again." << endl;
     }
-    while(e);
+  }
+
+  return 0;
 }
