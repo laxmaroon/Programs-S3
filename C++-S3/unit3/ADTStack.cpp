@@ -1,13 +1,27 @@
 #include <iostream>
 using namespace std;
 
-template <typename T>
+template <class T>
 class Stack
 {
 private:
     T *data; // pointer to store the elements in the stack
     int top; // index of the top element
     int capacity; // maximum number of elements that can be stored in the stack
+    
+    // resize the data array to double its current size
+    void resize()
+    {
+        int newCapacity = 2 * capacity;
+        T *newData = new T[newCapacity];
+        for (int i = 0; i <= top; i++)
+        {
+            newData[i] = data[i];
+        }
+        delete[] data;
+        data = newData;
+        capacity = newCapacity;
+    }
 
 public:
     Stack(int capacity = 10) : capacity(capacity), top(-1)
@@ -58,20 +72,6 @@ public:
         return top == -1;
     }
 
-private:
-    // resize the data array to double its current size
-    void resize()
-    {
-        int newCapacity = 2 * capacity;
-        T *newData = new T[newCapacity];
-        for (int i = 0; i <= top; i++)
-        {
-            newData[i] = data[i];
-        }
-        delete[] data;
-        data = newData;
-        capacity = newCapacity;
-    }
 };
 
 int main()
