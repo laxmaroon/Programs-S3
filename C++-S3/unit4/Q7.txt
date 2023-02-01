@@ -1,0 +1,34 @@
+A circular linked list is a type of linked list where the last node points back to the first node, creating a circular structure.
+ In other words, the next pointer of the last node in the list points back to the head of the list.
+
+Example: Consider a circular linked list with three nodes, "A", "B", and "C", where node "A" is the head of the list and 
+node "C" is the last node in the list. 
+The next pointer of node "C" would point back to node "A".
++---+    +---+    +---+
+| A | -> | B | -> | C |
++---+    +---+    +---+
+  ^                   |
+  |-------------------+
+
+In a circular linked list, there is no end to the list, and the list can be traversed indefinitely. 
+The advantage of a circular linked list over a regular linked list is that it can be used in applications where a loop is required, 
+such as in the implementation of a queue.
+
+Different representations of a circular linked list include:
+
+Single Circular Linked List: In this representation, a single node points back to the head of the list, creating a circular structure.
+
+Double Circular Linked List: In this representation, both the head node and the last node in the list point back to each other, 
+creating a circular structure. 
+This representation is useful in applications where both the head and tail of the list need to be accessed frequently.
+
+Example: Consider a double circular linked list with three nodes, "A", "B", and "C". The next pointer of node "C" would point back to node "A", 
+and the previous pointer of node "A" would point back to node "C".
++---+ <---+    +---> +---+ <---+    +---> +---+
+| A |      | B |      | C |      | A |      | C |
++---+ ---> +---+ ---> +---+ ---> +---+ <--- +---+
+  |                   |
+  +-------------------+
+In conclusion, a circular linked list is a type of linked list where the last node points back to the first node, creating a circular structure. 
+There are different representations of a circular linked list, including a single circular linked list and a double circular linked list, 
+each with its own advantages in specific use cases.

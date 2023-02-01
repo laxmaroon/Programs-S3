@@ -1,0 +1,35 @@
+A linked stack is a type of stack data structure that is implemented using a linked list. In a linked stack, each element in the stack is represented by a node in the linked list, and the top of the stack is represented by the head of the linked list.
+
+The following is an example of a linked stack with three elements:
++---+    +---+    +---+
+| 3 | -> | 2 | -> | 1 |
++---+    +---+    +---+
+  ^
+  |
+head
+
+In this example, the head of the linked list represents the top of the stack, and the value of the head node is 3. 
+The second node in the linked list represents the next element in the stack, and its value is 2. 
+The third node in the linked list represents the bottom of the stack, and its value is 1.
+
+To push an element onto the stack, a new node is added to the head of the linked list. 
+To pop an element from the stack, the head node is removed from the linked list.
+
+Push 4:
++---+    +---+    +---+    +---+
+| 4 | -> | 3 | -> | 2 | -> | 1 |
++---+    +---+    +---+    +---+
+  ^
+  |
+head
+
+Pop:
++---+    +---+    +---+
+| 3 | -> | 2 | -> | 1 |
++---+    +---+    +---+
+  ^
+  |
+head
+
+In this example, the push operation adds a new node with value 4 to the head of the linked list,
+ and the pop operation removes the head node, which has value 3.

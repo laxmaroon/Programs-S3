@@ -1,0 +1,38 @@
+A linked queue is a type of queue data structure that is implemented using a linked list. In a linked queue, each element in the queue is represented by a node in the linked list, and the front and rear of the queue are represented by the head and tail of the linked list, respectively.
+
+The following is an example of a linked queue with three elements:
+
+head      tail
++---+    +---+    +---+
+| 1 | -> | 2 | -> | 3 |
++---+    +---+    +---+
+
+A linked queue is a type of queue data structure that is implemented using a linked list. In a linked queue, each element in the queue is represented by a node in the linked list, and the front and rear of the queue are represented by the head and tail of the linked list, respectively.
+
+The following is an example of a linked queue with three elements:
+
+bash
+Copy code
+head      tail
++---+    +---+    +---+
+| 1 | -> | 2 | -> | 3 |
++---+    +---+    +---+
+In this example, the head of the linked list represents the front of the queue, and the value of the head node is 1. The tail of the linked list represents the rear of the queue, and the value of the tail node is 3.
+
+To enqueue an element onto the queue, a new node is added to the tail of the linked list. 
+To dequeue an element from the queue, the head node is removed from the linked list.
+
+Enqueue 4:
+head      tail
++---+    +---+    +---+    +---+
+| 1 | -> | 2 | -> | 3 | -> | 4 |
++---+    +---+    +---+    +---+
+
+Dequeue:
+head      tail
++---+    +---+    +---+
+| 2 | -> | 3 | -> | 4 |
++---+    +---+    +---+
+
+In this example, the enqueue operation adds a new node with value 4 to the tail of the linked list, 
+and the dequeue operation removes the head node, which has value 1.
