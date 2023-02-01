@@ -1,159 +1,88 @@
 #include <iostream>
-#include <string>
 using namespace std;
-class LIST
-{
-public:
-int info;
-LIST *next;
+
+struct Node {
+  int data;
+  Node* next;
 };
-class LINKED_LIST
-{
-LIST *head;
-int count;
-public:
-LINKED_LIST()
-{
-head = NULL;
-count=0;
-}
-void InsertF();
-void DeleteF();
-void Delatpos();
-void Display_List();
-void Addatpos();
+
+class LinkedList {
+  private:
+    Node* head;
+  public:
+    LinkedList() {
+      head = NULL;
+    }
+
+    // Adding nodes to the left:
+    void addNode(int data) {
+      Node* newNode = new Node; 
+      newNode->data = data;
+      newNode->next = head; //The next field of the new node is set to the current head of the linked list.
+      head = newNode;   //The head of the linked list is then updated to the newly created node, making it the new first node in the list.
+    }
+
+    void concatenate(LinkedList& list2) {
+      Node* temp = head;  //A temporary node temp is created and initialized to the head of the first linked list.
+      while (temp->next != NULL) {
+        temp = temp->next;   //The temp node is moved through the linked list until temp->next is NULL, which means it has reached the end of the linked list.
+      }
+      temp->next = list2.head; //The temp->next is set to the head of the second linked list.
+    }
+
+    bool search(int data) {
+      Node* temp = head;
+      while (temp != NULL) {
+        if (temp->data == data) {
+          return true;
+        }
+        temp = temp->next;
+      }
+      return false;
+    }
+
+    int countNodes() {
+      int count = 0;
+      Node* temp = head;
+      while (temp != NULL) {
+        count++;
+        temp = temp->next;
+      }
+      return count;
+    }
+
+    void printList() {
+      Node* temp = head;
+      while (temp != NULL) {
+        cout << temp->data << " ";
+        temp = temp->next;
+      }
+    }
 };
-void LINKED_LIST::InsertF()
-{
-LIST *temp;
-int item;
-cout << "Enter the data: ";
-cin >> item; cout << endl;
-temp = new LIST;
-temp->info = item;
-temp->next = NULL;
-if(head == NULL)
-{
-    head = temp;
-    count++;
-    
-}
-else
-{
-    temp->next = head;
-head = temp;
-count++;
-}
-    
-}
-void LINKED_LIST::Addatpos()
-{
-LIST *n;
-int p;
-cout<<endl<<"Enter position:";
-cin>>p;
-n=new LIST;
-n->next=NULL;
-cout<<endl<<"Enter data:";
-cin>>n->info;
-if(p==1)
-{
-n->next=head;
-head=n;
-count++;
-}
-else
-{
-int i=1;
-LIST *temp;
-temp=head;
-while(i<=p-2)
-{
-temp=temp->next;
-i++;
-}
-n->next=temp->next;
-temp->next=n;
-count++;
-}
-return;
-}
 
-
-void LINKED_LIST::DeleteF()
-{
-LIST *temp;
-if(head == NULL)
-cout << "No data is present to delete" << endl;
-else
-{
-temp = head;
-head = head->next;
-cout << "The deleted data is: " << temp->info << endl;
-delete temp;
-count--;
+int main() {
+  LinkedList list1, list2;
+  list1.addNode(5);
+  list1.addNode(10);
+  list1.addNode(15);
+  list2.addNode(20);
+  list2.addNode(25);
+  cout << "List 1: ";
+  list1.printList();
+  cout << endl;
+  cout << "List 2: ";
+  list2.printList();
+  cout << endl;
+  cout << "Concatenated List: ";
+  list1.concatenate(list2);
+  list1.printList();
+  cout << endl;
+  int searchData = 20;
+  if (list1.search(searchData)) {
+    cout << "Data " << searchData << " found in the list." << endl;
+  } else {
+    cout << "Data " << searchData << " not found in the list." << endl;
+  }
+  cout << "Number of nodes in the list: " << list1.countNodes() << endl;
+  return 0;
 }
-}
-void LINKED_LIST::Delatpos()
-{
-LIST *temp;
-int i,p;
-cout<<endl<<"Enter position:";
-cin>>p;
-if(count<p)
-cout<<"Linked list does not have "<<p<<" position";
-if(p==1)
-{
-    temp=head;
-head=head->next;
-delete temp;
-count--;
-return;
-}
-
-temp=head;
-i=1;
-while(i<p && temp!=NULL)
-{
-temp=temp->next;
-i++;
-}
-temp->next=temp->next->next;
-count--;
-return;
-}
-void LINKED_LIST::Display_List()
-{
-if(head == NULL)
-cout << "No data is present to dis[play" << endl;
-else
-{
-    cout<<"\n count"<<count<<endl;
-for(LIST *temp = head; temp != NULL; temp =temp->next)
-cout << temp->info << "->";
-cout<<"NULL";
-}
-}
-int main()
-{
-LINKED_LIST s1;
-
-int ch=1;
-while(ch)
-{
-cout << "\n1 Insert_front\n2.Addatpos\n3 Delete_front\n4.Delatpos\n5.Display List\n0 Exit\n";
-cin >> ch;
-switch(ch)
-{
-case 1 : s1.InsertF();break;
-case 2 :s1.Addatpos();s1.Display_List();break;
-case 3: s1.DeleteF();s1.Display_List();break;
-case 4 :s1.Delatpos();s1.Display_List();break;
-case 5 : s1.Display_List();break;
-default: cout << "Wrong choice!" << endl;
-cout << "Enter the choice again, with 0 to quit" <<endl;
-cin >> ch;
-}//end switch
-} //end while(ch)
-return 0;
-}//end main()
