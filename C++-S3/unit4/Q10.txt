@@ -1,4 +1,6 @@
-A linked queue is a type of queue data structure that is implemented using a linked list. In a linked queue, each element in the queue is represented by a node in the linked list, and the front and rear of the queue are represented by the head and tail of the linked list, respectively.
+A linked queue is a type of queue data structure that is implemented using a linked list. In a linked queue, each element in the queue is
+ represented by a node in the linked list, and the front and rear of the queue are represented by the head and tail of the linked list, 
+ respectively.
 
 The following is an example of a linked queue with three elements:
 
@@ -11,8 +13,6 @@ A linked queue is a type of queue data structure that is implemented using a lin
 
 The following is an example of a linked queue with three elements:
 
-bash
-Copy code
 head      tail
 +---+    +---+    +---+
 | 1 | -> | 2 | -> | 3 |
