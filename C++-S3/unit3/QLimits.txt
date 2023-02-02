@@ -1,0 +1,20 @@
+Disadvantages of linear queue:
+
+Fixed size: The size of a linear queue is fixed and cannot be changed dynamically, which can result in the waste of memory.
+Overflow: If we try to insert an element into a full queue, it will result in overflow.
+Underflow: If we try to remove an element from an empty queue, it will result in underflow.
+Circular Queue:
+A circular queue is a type of queue that solves the limitations of a linear queue. In a circular queue, 
+the rear pointer points to the first element after pointing to the last element. It makes the queue circular and eliminates the waste of memory.
+
+circular queue
+
+In the above diagram, after the removal of A, the front pointer moves to B, and the rear pointer points to C.
+ After the removal of B, the front pointer moves to C, and the rear pointer still points to C. In this way, the front 
+ and rear pointers continue to rotate, making the queue circular and allowing it to overcome the limitations of a linear queue.
+
+In a circular queue, we can easily insert elements as the rear pointer points to the first element after pointing to the last element. 
+We can also remove elements from the queue easily without encountering the overflow and underflow problems.
+
+
+

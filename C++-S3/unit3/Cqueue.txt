@@ -1,0 +1,15 @@
+A circular queue is a type of queue data structure that operates in a circular fashion. 
+It solves the limitations of linear queues and eliminates the waste of memory.
+
+circular queue
+
+In the above diagram, the front pointer is pointing to the first element A, and the rear pointer is pointing to the last element C. 
+After the removal of A, the front pointer moves to the next element B, and the rear pointer still points to C. 
+In this way, the front and rear pointers continue to rotate, making the queue circular.
+
+In a circular queue, the front and rear pointers rotate in a circular fashion, making it possible to insert and remove elements 
+from the queue easily. When the front and rear pointers are pointing to the same element, it means the queue is empty. 
+When the rear pointer points to the first element after pointing to the last element, it means the queue is full.
+
+In a circular queue, the insertion of elements takes place at the rear end and the removal of elements takes place at the front end, 
+following the FIFO (First-In-First-Out) principle. The data element that is inserted first will be the first to be removed.

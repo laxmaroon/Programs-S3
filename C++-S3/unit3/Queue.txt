@@ -1,0 +1,25 @@
+A queue is a linear data structure that follows the FIFO (First-In-First-Out) principle. 
+The data element that is inserted first will be the first to be removed. The insertion of elements takes place at the rear end and 
+the removal of elements takes place at the front end.
+
+queue
+
+In the above diagram, there are three elements present in the queue. 
+The first element to be inserted is A, followed by B and then C. As we follow the FIFO principle, the first element to be removed will be A. 
+After the removal of A, the front pointer moves to B. The next element to be removed will be B, and so on.
+
+Queue Overflow:
+Queue overflow occurs when we try to insert an element into a full queue. 
+If the front pointer is not pointing to the first element and the rear pointer is pointing to the last element,
+ then the queue is full, and no more elements can be inserted.
+
+queue overflow
+
+Queue Underflow:
+Queue underflow occurs when we try to remove an element from an empty queue. If the front pointer is pointing to the first element and 
+the rear pointer is pointing to the last element, then the queue is empty, and no more elements can be removed.
+
+queue underflow
+
+
+
